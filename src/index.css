@@ -11,34 +11,88 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 /* Home Section */
-.homeContainer{
+.homeContainer {
   display: flex;
   flex-direction: row;
+
 }
+
 /* Accounts Section */
-.accountPortion{
+.accountPortion {
   background-color: #111b21;
   height: 100vh;
   width: 40vw;
-  border: 1px solid white;
 }
+
 /* Charts Section */
-.chartsPortion{
-  background-color:#222E35;
+.chartsPortion {
+  background-color: #222E35;
   height: 100vh;
   width: 60vw;
 }
-.flexContainerHomeSection{
-display: flex;
-flex-direction: row;
-justify-content: center;
-position: relative;
-top: 20%;
+
+.flexContainerHomeSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  top: 20%;
 }
-.alignCenter{
+
+.alignCenter {
   text-align: center;
 }
-.textColor{
+
+.textColor {
   color: grey;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.chartsBgImage {
+  background-image: url("https://e1.pxfuel.com/desktop-wallpaper/250/23/desktop-wallpaper-hopped-the-original-backgrounds-if-you-want-to-use-whatsapp-dark-mode-go-to-settings-whatsapp-chat-thumbnail.jpg");
+  height: 100vh;
+  width: 60vw;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 80vh;
+  height: 35px;
+  background-color: #222E35;
+  padding: 15px;
+}
+
+.searchBarForCharts {
+  background-color: #2a3942;
+  border: 1px solid #2a3942;
+  margin-left: 20px;
+  color: white;
+  width: 45vw;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 5px
 }
