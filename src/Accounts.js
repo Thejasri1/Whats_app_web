@@ -128,13 +128,13 @@ const Account = () => {
           </div>
         </div>
         <div style={{ height: "80vh", overflowY: "scroll", overflowX: 'hidden' }}>
-          {userAccounts.map((user) => {
+          {userAccounts?.map((user) => {
             return (
-              <div key={user._id}>
+              <div key={user?._id}>
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginLeft: "20px", paddingRight: "20px" }}>
                   <div style={{ display: "flex", flexDirection: "row" }} onClick={() => onEnableAccountsPage(user)}>
-                    <img src={user.image} alt="userImg" height={55} width={55} style={{ borderRadius: "55px", marginRight: "20px" }} key={user._id} />
-                    <h4 style={{ color: "white" }}>{user.name}</h4>
+                    <img src={user?.image} alt="userImg" height={55} width={55} style={{ borderRadius: "55px", marginRight: "20px" }} key={user._id} />
+                    <h4 style={{ color: "white" }}>{user?.name}</h4>
                   </div>
                   <div>
                     <p style={{ color: "white" }}>{getTimeFromDate(user.timestamp)}</p>
