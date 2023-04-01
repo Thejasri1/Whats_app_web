@@ -34,12 +34,12 @@ const AuthPage = (props) => {
         uri => {
           resolve(uri);
           const updatedData = { _id: authInfo?._id, image: uri, name: authInfo?.name, status: authInfo?.status }
-                const res = updateAuthData(authInfo._id, updatedData)
+                const res = updateAuthData(authInfo?._id, updatedData)
                 setAuthData(res)
                 window.location.replace('/?profile')
         }, 'base64' );
     });
-    
+
     const onTakeBaseURL = async(e,authInfo) => {
         const fr = new FileReader()
         const file = e.target.files[0];
@@ -63,12 +63,12 @@ const AuthPage = (props) => {
 
     const onChangeAuthName = (e, authInfo) => {
         let value = e.target.value
-        const updatedData = { _id: authInfo._id, image: authInfo.image, name: value, status: authInfo.status }
+        const updatedData = { _id: authInfo?._id, image: authInfo?.image, name: value, status: authInfo?.status }
         setAuthData(updatedData)
     }
     const onChangeAuthStatus = (e, authInfo) => {
         let value = e.target.value
-        const updatedData = { _id: authInfo._id, image: authInfo.image, name: authInfo.name, status: value }
+        const updatedData = { _id: authInfo?._id, image: authInfo?.image, name: authInfo?.name, status: value }
         setAuthData(updatedData)
 
     }
@@ -79,7 +79,7 @@ const AuthPage = (props) => {
         try {
             setUpdateText(true)
             setUpdateStatusText(true)
-            const res = await updateAuthData(data._id, data)
+            const res = await updateAuthData(data?._id, data)
             setAuthData(res)
         }
         catch (e) {
@@ -111,8 +111,8 @@ const AuthPage = (props) => {
     }
     const onRemoveRemovePhoto = async (authValue) => {
         try {
-            const updatedRes = { _id: authValue._id, image: "", name: authValue.name, status: authValue.status }
-            const res = updateAuthData(authValue._id, updatedRes)
+            const updatedRes = { _id: authValue?._id, image: "", name: authValue?.name, status: authValue?.status }
+            const res = updateAuthData(authValue?._id, updatedRes)
             setAuthData(res)
             setDisplayModel(false)
             window.location.replace('/?profile')
@@ -160,8 +160,8 @@ const AuthPage = (props) => {
             canvasElement.getContext('2d').drawImage(webCamElement, 0, 0, canvasElement.width, canvasElement.height);
             let image_data_url = canvasElement.toDataURL('image/jpeg');
             console.log("image_data_url ",image_data_url )
-            const updatedData = { _id: authData._id, image: image_data_url, name: authData.name, status: authData.status }
-            const res = updateAuthData(authData._id, updatedData)
+            const updatedData = { _id: authData?._id, image: image_data_url, name: authData?.name, status: authData?.status }
+            const res = updateAuthData(authData?._id, updatedData)
             setAuthData(res)
             window.location.replace('/?profile')
         }
@@ -186,15 +186,15 @@ const AuthPage = (props) => {
                         </div>
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "center" }} className="container" onClick={() => onClickProfilePhoto(authData)} >
                             {
-                                authData.image === "" ? <img src="https://www.clipartmax.com/png/small/214-2143742_individuals-whatsapp-profile-picture-icon.png" alt="" className="authIamge" /> :
-                                    <img src={authData?.image} alt={authData.name} className="authIamge" />
+                                authData?.image === "" ? <img src="https://www.clipartmax.com/png/small/214-2143742_individuals-whatsapp-profile-picture-icon.png" alt="" className="authIamge" /> :
+                                    <img src={authData?.image} alt={authData?.name} className="authIamge" />
                             }
                             <div className="middle">
                                 <div className="text">
                                     <IoMdCamera size={25} color={COLORS.WHITE} style={{ cursor: "pointer" }} />
                                     <h5 style={{ fontWeight: "600" }}>
                                         {
-                                            authData.image === "" ? "ADD PROFILE PHOTO" : "CHANGE PROFILE PHOTO"
+                                            authData?.image === "" ? "ADD PROFILE PHOTO" : "CHANGE PROFILE PHOTO"
                                         }
                                     </h5>
                                 </div>
@@ -212,7 +212,7 @@ const AuthPage = (props) => {
                                     </h4>
                                 }
                                 {!updateText &&
-                                    <input type="text" name="name" value={authData.name} className="authInput" onChange={(e) => onChangeAuthName(e, authData)} />
+                                    <input type="text" name="name" value={authData?.name} className="authInput" onChange={(e) => onChangeAuthName(e, authData)} />
                                 }
                                 {
                                     updateText &&
@@ -233,7 +233,7 @@ const AuthPage = (props) => {
                                         {authData?.status}
                                     </h4>}
                                 {!updateStatusText &&
-                                    <input type="text" value={authData.status} name="status" className="authInput" onChange={(e) => onChangeAuthStatus(e, authData)} />
+                                    <input type="text" value={authData?.status} name="status" className="authInput" onChange={(e) => onChangeAuthStatus(e, authData)} />
                                 }
                                 {
                                     updateStatusText &&

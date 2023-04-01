@@ -73,15 +73,17 @@ code {
   background-image: url("https://e1.pxfuel.com/desktop-wallpaper/250/23/desktop-wallpaper-hopped-the-original-backgrounds-if-you-want-to-use-whatsapp-dark-mode-go-to-settings-whatsapp-chat-thumbnail.jpg");
   height: 100vh;
   width: 60vw;
+  overflow-y: scroll;
 }
 
 .flexContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  top: 80vh;
-  height: 35px;
+  position: fixed;
+  top: 90vh;
+  height: 40px;
+  width: 60vw;
   background-color: #222E35;
   padding: 15px;
 }

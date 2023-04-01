@@ -75,7 +75,7 @@ const AccountsPage = () => {
     )
   }
   const displayAccountsPage = () => {
-    const authRes = authData[0]
+    const authRes = authData&&authData[0]
     return (
       <>
         <div style={{ backgroundColor: COLORS.CINDER, display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "5px" }}>
@@ -126,11 +126,11 @@ const AccountsPage = () => {
               <div key={user?._id}>
                 <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginLeft: "20px", paddingRight: "20px" }}>
                   <div style={{ display: "flex", flexDirection: "row" }} onClick={() => onEnableAccountsPage(user)}>
-                    <img src={user?.image} alt="userImg" height={55} width={55} style={{ borderRadius: "55px", marginRight: "20px", cursor: "pointer" }} key={user._id} />
+                    <img src={user?.image} alt="userImg" height={55} width={55} style={{ borderRadius: "55px", marginRight: "20px", cursor: "pointer" }} key={user?._id} />
                     <h4 style={{ color: "white", cursor: "pointer" }}>{user?.name}</h4>
                   </div>
                   <div>
-                    <p style={{ color: "white" }}>{getTimeFromDate(user.timestamp)}</p>
+                    <p style={{ color: "white" }}>{getTimeFromDate(user?.timestamp)}</p>
                   </div>
                 </div>
                 <div style={{ boxShadow: "0px 0px 0px 1px white", opacity: "0.1", width: "32vw", marginLeft: "90px", marginTop: "5px", marginBottom: "5px" }}>
